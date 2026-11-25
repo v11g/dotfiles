@@ -22,10 +22,7 @@ return {
         go = { "golangcilint" },
         python = { "ruff" },
         ["*"] = { "cspell", "codespell" },
-        javascript = { "oxlint" },
-        typescript = { "oxlint" },
-        javascriptreact = { "oxlint" },
-        typescriptreact = { "oxlint" },
+        -- js/ts: oxlint runs as an LSP (mason), not here
       },
     },
     keys = {

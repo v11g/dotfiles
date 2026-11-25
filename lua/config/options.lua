@@ -5,6 +5,9 @@
 if not vim.g.vscode then
   vim.o.spell = true
 end
+-- Python LSP for the lang.python extra
+vim.g.lazyvim_python_lsp = "basedpyright"
+
 -- Set conceal level to 0
 vim.o.conceallevel = 0
 

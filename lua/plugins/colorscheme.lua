@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>tc", randomize_theme, {
 })
 
 return {
-  { "ellisonleao/gruvbox.nvim" },
+  { "ellisonleao/gruvbox.nvim", lazy = true },
   {
     "folke/tokyonight.nvim",
     lazy = true,
@@ -80,7 +80,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "dracula",
+      colorscheme = "tokyonight",
     },
   },
 }

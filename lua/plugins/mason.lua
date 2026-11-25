@@ -22,7 +22,6 @@ return {
         "oxlint",
         "standardjs",
         -- typescript
-        "typescript-language-server",
         "ts-standard",
         -- prisma ls
         "prisma-language-server",

@@ -16,7 +16,6 @@ local enabled = {
   "nvim-treesitter-textobjects",
   "nvim-ts-context-commentstring",
   "vim-repeat",
-  "vim-jsdoc",
   "LazyVim",
 }
 
