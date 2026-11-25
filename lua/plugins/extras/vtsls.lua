@@ -12,7 +12,7 @@ return {
         "dmmulroy/ts-error-translator.nvim",
         ft = "javascript,typescript,typescriptreact,svelte",
         opts = {
-          auto_override_publish_diagnostics = true,
+          auto_attach = true,
         },
       },
       -- Type queries
@@ -138,7 +138,7 @@ return {
             return true
           end
 
-          require("lazyvim.util").lsp.on_attach(function(client, bufnr)
+          Snacks.util.lsp.on(function(bufnr, client)
             if client.name == "vtsls" then
               -- Attach twoslash queries
               require("twoslash-queries").attach(client, bufnr)

@@ -149,7 +149,7 @@ return {
           return true
         end
 
-        require("lazyvim.util").lsp.on_attach(function(client, bufnr)
+        Snacks.util.lsp.on(function(bufnr, client)
           if client.name == "tsserver" then
             -- Attach twoslash queries
             require("twoslash-queries").attach(client, bufnr)

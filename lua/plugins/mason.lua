@@ -17,10 +17,9 @@ return {
         "markdownlint",
         -- rustywind for tailwindcss
         "rustywind",
-        -- node-debug
-        "node-debug2-adapter",
         -- js
         "js-debug-adapter",
+        "oxlint",
         "standardjs",
         -- typescript
         "typescript-language-server",
