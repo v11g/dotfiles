@@ -1,65 +1,32 @@
-# LazyVim IDE configuration
+# dotfiles
 
-<!--toc:start-->
+Alacritty + Zellij + Neovim (LazyVim) setup.
 
-- [Install Neovim](#install-neovim)
-- [Install the Config](#install-the-config)
-- [Get healthy](#get-healthy)
-- [Fonts](#fonts)
-- [Uninstall](#uninstall)
-- [Reference](#resources)
-<!--toc:end-->
-
-## Install Neovim
+## New machine
 
 ```sh
-brew install neovim
+git clone git@github.com:vukhanhtruong/dotfiles.git ~/dotfiles
+~/dotfiles/install.sh
 ```
 
-## Install the config
+The script:
 
-Make sure to remove or move your current `nvim` directory
+1. downloads zellij and neovim (pinned versions) into `~/.local/bin`
+2. installs the MesloLGS Nerd Font into `~/.local/share/fonts`
+3. symlinks `~/.config/{alacritty,zellij,nvim}` to this repo (existing dirs get backed up)
+4. builds alacritty with cargo (needs rust and the apt deps it prints)
 
-```sh
-git clone https://github.com/vukhanhtruong/lazyvim.git ~/.config/nvim
-```
+Re-running is safe. To bump a version, change the number at the top of `install.sh`.
 
-Run `nvim` and wait for the plugins to be installed
+## Layout
 
-## Install Language Server
+| Folder | What |
+|---|---|
+| `alacritty/` | terminal config, tokyo-night colors |
+| `zellij/` | config, keybinds, `sized` default layout (45/55 split), themes |
+| `nvim/` | LazyVim config (see `nvim/README.md`) |
+| `fonts/` | MesloLGS Nerd Font |
 
-Update [mason.lua](./lua/plugins/mason.lua) or using the following command:
+## Note
 
-```sh
-# List out the installed ones
-:Mason
-# Install a package, e.g: ts-ls is typescript language server
-:MasonInstall ts-ls
-```
-
-Find out more [here](https://github.com/williamboman/mason-lspconfig.nvim)
-
-## Get healthy
-
-Open `nvim` and enter the following:
-
-```lua
-:checkhealth
-```
-
-## Fonts
-
-I recommend using the following [repo](https://github.com/ronniedroid/getnf) to get a "Nerd Font" (Font that supports icons)
-
-## Uninstall
-
-```sh
-  rm -rf ~/.config/nvim
-  rm -rf ~/.local/share/nvim
-  rm -rf ~/.cache/nvim
-  rm -rf ~/.local/state/nvim
-```
-
-## Reference
-
-[IT Man lazy-nvim-ide](https://github.com/jellydn/lazy-nvim-ide)
+`alacritty/shared.toml` points the shell at `/home/linuxbrew/.linuxbrew/bin/zsh`. Change it if zsh lives elsewhere.

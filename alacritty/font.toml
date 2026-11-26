@@ -1,0 +1,6 @@
+[font]
+normal = { family = "MesloLGS Nerd Font", style = "Regular" }
+bold = { family = "MesloLGS Nerd Font", style = "Bold" }
+italic = { family = "MesloLGS Nerd Font", style = "Italic" }
+# tighter rows: shrinks the empty space a border line leaves in its row
+offset = { x = 0, y = -2 }

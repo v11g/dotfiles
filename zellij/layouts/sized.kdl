@@ -1,0 +1,7 @@
+// built-in "compact" layout; sized.swap.kdl makes 2 side-by-side panes open at 45% / 55%
+layout {
+    pane
+    pane size=1 borderless=true {
+        plugin location="compact-bar"
+    }
+}

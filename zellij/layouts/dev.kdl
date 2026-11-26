@@ -1,0 +1,16 @@
+
+layout {
+    pane split_direction="vertical" {
+        pane edit="."
+        pane split_direction="horizontal" {
+          git { args "status"; }
+        }
+    }
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+    pane_template name="git" {
+        command "git"
+        start_suspended true
+    }
+}
