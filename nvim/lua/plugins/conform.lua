@@ -1,5 +1,11 @@
 local Lsp = require("utils.lsp")
 
+-- run only the first available formatter of the list
+local function first(list)
+  list.stop_after_first = true
+  return list
+end
+
 return {
   {
     "stevearc/conform.nvim",
@@ -15,20 +21,15 @@ return {
         php = { "pint" },
         rust = { "rustfmt" },
         -- ❌ Remove nested brackets
-        yaml = { "prettierd", "prettier", "dprint" },
-        ["markdown"] = { "prettierd", "prettier", "dprint" },
-        ["markdown.mdx"] = { "prettierd", "prettier", "dprint" },
-        ["javascript"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
-        ["javascriptreact"] = { "rustywind", "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
-        ["typescript"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
-        ["typescriptreact"] = { "rustywind", "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
-        ["svelte"] = { "rustywind", "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
-      },
-      -- ✅ Use stop_after_first instead of nested brackets
-      format_on_save = {
-        timeout_ms = 1000,
-        lsp_fallback = true,
-        stop_after_first = true,
+        yaml = first({ "prettierd", "prettier", "dprint" }),
+        ["markdown"] = first({ "prettierd", "prettier", "dprint" }),
+        ["markdown.mdx"] = first({ "prettierd", "prettier", "dprint" }),
+        ["javascript"] = first({ "deno_fmt", "prettierd", "prettier", "biome", "dprint" }),
+        -- rustywind (tailwind class sort) must run before the formatter, so no stop_after_first here
+        ["javascriptreact"] = { "rustywind", "deno_fmt", "prettierd", "biome", "dprint" },
+        ["typescript"] = first({ "deno_fmt", "prettierd", "prettier", "biome", "dprint" }),
+        ["typescriptreact"] = { "rustywind", "deno_fmt", "prettierd", "biome", "dprint" },
+        ["svelte"] = { "rustywind", "deno_fmt", "prettierd", "biome", "dprint" },
       },
       formatters = {
         biome = {

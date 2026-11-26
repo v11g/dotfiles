@@ -29,7 +29,18 @@ return {
   --   },
   --   ---@class PluginLspOpts
   opts = {
-    servers = {},
+    servers = {
+      -- oxlint only in projects that opted in; otherwise it duplicates eslint
+      oxlint = {
+        root_dir = function(bufnr, on_dir)
+          local markers = { ".oxlintrc.json", ".oxlintrc.jsonc", "oxlint.config.ts" }
+          local found = vim.fs.find(markers, { path = vim.api.nvim_buf_get_name(bufnr), upward = true })[1]
+          if found then
+            on_dir(vim.fs.dirname(found))
+          end
+        end,
+      },
+    },
     -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
     -- Be aware that you also will need to properly configure your LSP server to
     -- provide the inlay hints.

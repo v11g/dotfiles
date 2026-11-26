@@ -41,3 +41,17 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.opt_local.filetype = "embedded_template"
   end,
 })
+
+-- ESLint --fix on save (LazyVim's built-in eslint formatter does not apply fixes with nvim 0.12)
+-- respects the <leader>uf / <leader>uF autoformat toggles
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup("eslint_fix_on_save"),
+  callback = function(ev)
+    if not LazyVim.format.enabled(ev.buf) then
+      return
+    end
+    if #vim.lsp.get_clients({ bufnr = ev.buf, name = "eslint" }) > 0 then
+      vim.cmd("silent! LspEslintFixAll")
+    end
+  end,
+})

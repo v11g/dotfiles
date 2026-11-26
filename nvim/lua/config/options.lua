@@ -7,6 +7,8 @@ if not vim.g.vscode then
 end
 -- Python LSP for the lang.python extra
 vim.g.lazyvim_python_lsp = "basedpyright"
+-- eslint fixes run from an autocmd in autocmds.lua instead
+vim.g.lazyvim_eslint_auto_format = false
 
 -- Set conceal level to 0
 vim.o.conceallevel = 0
