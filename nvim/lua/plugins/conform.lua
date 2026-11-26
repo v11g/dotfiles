@@ -16,7 +16,6 @@ return {
     opts = {
       formatters_by_ft = {
         fish = {},
-        go = { "goimports", "gofmt" },
         python = { "ruff_fix", "ruff_format" },
         php = { "pint" },
         rust = { "rustfmt" },

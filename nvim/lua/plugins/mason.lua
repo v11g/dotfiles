@@ -19,6 +19,8 @@ return {
         "rustywind",
         -- js
         "js-debug-adapter",
+        -- python debugger (lang.python + dap.core)
+        "debugpy",
         "oxlint",
         "standardjs",
         -- typescript

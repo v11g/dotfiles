@@ -75,5 +75,8 @@ for c in alacritty zellij nvim; do link_config "$c"; done
 ln -sfn "$DOTFILES/bin/dots" "$BIN/dots"
 install_alacritty || echo "!! alacritty skipped, see message above"
 
+# rust editor tooling (go/python/node toolchains come from your version manager, e.g. mise)
+command -v rustup >/dev/null && rustup component add rust-analyzer clippy rustfmt
+
 case ":$PATH:" in *":$BIN:"*) ;; *) echo "!! add $BIN to PATH in your shell rc" ;; esac
 echo "done. open nvim once to let lazy.nvim install plugins."
