@@ -22,9 +22,6 @@ return {
         -- python debugger (lang.python + dap.core)
         "debugpy",
         "oxlint",
-        "standardjs",
-        -- typescript
-        "ts-standard",
         -- prisma ls
         "prisma-language-server",
         -- sql ls
@@ -36,8 +33,6 @@ return {
         -- docker
         "docker-compose-language-service",
         "dockerfile-language-server",
-        -- sonarlint
-        "sonarlint-language-server",
         -- yaml
         "yamllint",
         "yamlfmt",
