@@ -16,6 +16,8 @@ The script:
 3. symlinks `~/.config/{alacritty,zellij,nvim}` to this repo (existing dirs get backed up)
 4. builds alacritty with cargo (needs rust and the apt deps it prints)
 
+It also adds a `dots` command: after changing any config, run `dots "what changed"` to commit and push.
+
 Re-running is safe. To bump a version, change the number at the top of `install.sh`.
 
 ## Layout

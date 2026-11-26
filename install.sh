@@ -72,6 +72,7 @@ install_zellij
 install_nvim
 install_fonts
 for c in alacritty zellij nvim; do link_config "$c"; done
+ln -sfn "$DOTFILES/bin/dots" "$BIN/dots"
 install_alacritty || echo "!! alacritty skipped, see message above"
 
 case ":$PATH:" in *":$BIN:"*) ;; *) echo "!! add $BIN to PATH in your shell rc" ;; esac

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Save dotfiles changes to GitHub. Usage: dots ["commit message"]
+set -euo pipefail
+cd "$(dirname "$(readlink -f "$0")")/.."
+git add -A
+if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+git status --short
+git commit -qm "${1:-chore: update dotfiles}"
+git push -q
+echo "pushed"
